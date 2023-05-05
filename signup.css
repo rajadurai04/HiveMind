@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #171717;
+}
+
+body::before {
+  content: "";
+  background-image: url("blockchain (1) 1 (1).png");
+  position: absolute;
+  bottom: 0;
+  left: 520px;
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-position: bottom;
+  width: 100%;
+  height: 100%;
+}
+.box1 {
+  position: relative;
+  width: 380px;
+  height: 500px;
+  background: rgb(50, 46, 46);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.box1::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 500px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #d16400,
+    #d16400,
+    #d16400
+  );
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 4s linear infinite;
+}
+.box1::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 500px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #d16400,
+    #d16400,
+    #d16400
+  );
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 4s linear infinite;
+  animation-delay: -2s;
+}
+.borderline1 {
+  position: absolute;
+  top: 0;
+  inset: 0;
+}
+.borderline1::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 500px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    white,
+    white,
+    white
+  );
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 4s linear infinite;
+  animation-delay: -1s;
+}
+.borderline1::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 500px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    white,
+    white,
+    white
+  );
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 4s linear infinite;
+  animation-delay: -3s;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.box1 form {
+  position: absolute;
+  inset: 4px;
+  background: #171717;
+  padding: 50px 40px;
+  border-radius: 8px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+.box1 form h2 {
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+.box1 form .inputbox {
+  position: relative;
+  width: 300px;
+  margin-top: 35px;
+}
+.box1 form .inputbox input {
+  position: relative;
+  width: 100%;
+  padding: 20px 10px 10px;
+  background: transparent;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  color: black;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  z-index: 10;
+}
+.box1 form .inputbox span {
+  position: absolute;
+  left: 0;
+  padding: 20px 0px 10px;
+  pointer-events: none;
+  color: grey;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+}
+.box1 form .inputbox input:valid ~ span,
+.box1 form .inputbox input:focus ~ span {
+  color: white;
+  font-size: 0.75em;
+  transform: translateY(-34px);
+}
+.box1 form .inputbox i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: 0.5s;
+  pointer-events: none;
+}
+.box1 form .inputbox input:valid ~ i,
+.box1 form .inputbox input:focus ~ i {
+  height: 44px;
+}
+.box1 form .links {
+  display: flex;
+  justify-content: space-between;
+}
+.box1 form .links p {
+  margin: 10px 0;
+  font-size: 0.75em;
+  color: grey;
+  text-decoration: none;
+}
+.box1 form .links a {
+  margin: 10px 0;
+  font-size: 0.75em;
+  color: grey;
+  text-decoration: none;
+}
+.box1 form .links a:hover,
+.box1 form .links a:nth-child(2) {
+  color: white;
+}
+.box1 form button[type="submit"] {
+  border: none;
+  outline: none;
+  padding: 9px 25px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9em;
+  border-radius: 4px;
+  font-weight: 600;
+  width: 120px;
+  margin-top: 10px;
+}
+.box1 form button[type="submit"]:active {
+  opacity: 0.8;
+}

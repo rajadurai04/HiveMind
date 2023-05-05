@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="signup.css" />
+    <title>HiveMIND</title>
+
+    <link rel="icon" href="favicon.png" type="image/png" />
+  </head>
+  <body>
+    <div class="box1">
+      <span class="borderline1"></span>
+      <form id="form">
+        <h2>Sign Up</h2>
+        <div class="inputbox">
+          <input type="text" required="required" id="fname" />
+          <span>UserName</span>
+          <i></i>
+        </div>
+        <div class="inputbox">
+          <input type="text" required="required" id="eemail" />
+          <span>UserEmail</span>
+          <i></i>
+        </div>
+        <div class="inputbox">
+          <input type="password" required="required" id="lpassword" />
+          <span>Password</span>
+          <i></i>
+        </div>
+        <div class="links">
+          <p>Already have an Account?</p>
+          <a href="./login.html">Sign in</a>
+        </div>
+        <button type="submit" onclick="UserRegister()" id="btn">Sign Up</button>
+      </form>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+    <script src="data.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  </body>
+</html>
