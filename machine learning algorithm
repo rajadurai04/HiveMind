@@ -1,0 +1,56 @@
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+
+# Load the data
+data = pd.read_csv('random_database.csv')
+data = pd.read_csv('random_database.csv')
+print(data.head())
+import pandas as pd
+from fuzzywuzzy import fuzz
+
+# load the database
+df = pd.read_csv('ideas.csv')
+
+def is_unique(idea_title, idea_description):
+    """
+    Check if an idea is unique by comparing its title and description to the ideas in the database.
+    The idea description is given more importance than the title.
+
+    Parameters:
+        idea_title (str): The title of the idea.
+        idea_description (str): The description of the idea.
+
+    Returns:
+        bool: True if the idea is unique, False otherwise.
+    """
+
+    # iterate through the ideas in the database
+    for _, row in df.iterrows():
+        # compare the similarity between the idea description and the database description
+        description_similarity = fuzz.token_set_ratio(idea_description.lower(), row['text'].lower())
+
+        # compare the similarity between the idea title and the database label
+        title_similarity = fuzz.token_set_ratio(idea_title.lower(), row['label'].lower())
+
+        # if the idea is already in the database or the description similarity is greater than 70%
+        if (description_similarity > 70) or (title_similarity > 70):
+            return False
+    
+    # if the idea is not in the database and the description similarity is less than or equal to 70%
+    # then it is considered unique and added to the database
+    df.loc[len(df.index)] = [idea_description, idea_title]
+    df.to_csv('ideas_database.csv', index=False)
+    return True
+
+
+# prompt user for input
+while True:
+    idea_title = input("Enter the idea description ")
+    if idea_title == 'exit':
+        break
+    idea_description = input("Enter the idea name ")
+    if is_unique(idea_title, idea_description):
+        print("The idea is unique! Adding it to the database...")
+    else:
+        print("The idea is not unique.")
